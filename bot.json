@@ -1,0 +1,192 @@
+{
+  "id": "ce99c38c-92d0-4a1b-aa6a-41df64f97315",
+  "name": "Solo_bot_covid_bot",
+  "description": null,
+  "default_flow": "Default",
+  "flows": [
+    {
+      "name": "Default",
+      "description": "Default custom flow",
+      "commands": []
+    },
+    {
+      "name": "diag_20200330",
+      "commands": []
+    },
+    {
+      "name": "diag_20200330_algo",
+      "commands": []
+    },
+    {
+      "name": "test_000",
+      "commands": []
+    },
+    {
+      "name": "test_001",
+      "commands": []
+    },
+    {
+      "name": "test_002",
+      "commands": []
+    },
+    {
+      "name": "test_003",
+      "commands": []
+    },
+    {
+      "name": "test_004",
+      "commands": []
+    },
+    {
+      "name": "test_005",
+      "commands": []
+    },
+    {
+      "name": "test_006",
+      "commands": []
+    },
+    {
+      "name": "test_007",
+      "commands": []
+    },
+    {
+      "name": "test_008",
+      "commands": []
+    },
+    {
+      "name": "test_009",
+      "commands": []
+    },
+    {
+      "name": "test_010",
+      "commands": []
+    },
+    {
+      "name": "test_011",
+      "commands": []
+    },
+    {
+      "name": "test_012",
+      "commands": []
+    },
+    {
+      "name": "test_013",
+      "commands": []
+    }
+  ],
+  "files": [
+    {
+      "name": "préambule",
+      "description": null
+    },
+    {
+      "name": "preambuleV2",
+      "description": null
+    }
+  ],
+  "functions": [
+    {
+      "name": "norm_units",
+      "description": null,
+      "args": [],
+      "import_url": null,
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {},
+      "app_id": null,
+      "version": null
+    }
+  ],
+  "apps": [
+    {
+      "name": "clevy/comprehension_api",
+      "description": "Analyze text with Clevy's Comprehension API",
+      "args": [
+        "text=\"\""
+      ],
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {
+        "API_ENDPOINT": "",
+        "API_KEY": ""
+      },
+      "app_id": "2121c7ad-7a3b-46b0-970f-9d64229f12e1",
+      "version": "1.0.0"
+    },
+    {
+      "name": "giphy",
+      "description": "Find GIFs on Giphy",
+      "args": [
+        "action=\"gif|sticker\"",
+        "query=\"\""
+      ],
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {
+        "API_KEY": ""
+      },
+      "app_id": "7c8ce645-fb76-4d8f-ab47-90f4ffe3ca8a",
+      "version": "1.0.0"
+    },
+    {
+      "name": "http",
+      "description": "Perform HTTP requests easily",
+      "args": [
+        "action=\"GET|POST|PUT|PATCH|DELETE\"",
+        "body=\"\"",
+        "headers=\"\"",
+        "url=\"\""
+      ],
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {},
+      "app_id": "9105e421-0eed-4794-86ca-5f34eaad8bf4",
+      "version": "1.0.0"
+    },
+    {
+      "name": "regex",
+      "description": "Analyze text with RegExps",
+      "args": [
+        "action=\"\"",
+        "flags=\"\"",
+        "pattern=\"\"",
+        "string=\"\""
+      ],
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {},
+      "app_id": "9510d0f2-d743-4b8a-95f1-12fe88ade0f4",
+      "version": "1.0.0"
+    },
+    {
+      "name": "sap/cai",
+      "description": "Analyze text with SAP CAI",
+      "args": [
+        "language=\"\"",
+        "text=\"\""
+      ],
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {
+        "API_KEY": ""
+      },
+      "app_id": "095d21ba-4cca-4f5b-8d4f-4bccd149a71f",
+      "version": "1.0.1"
+    },
+    {
+      "name": "zapier",
+      "description": "Connect flows with zapier webhooks",
+      "args": [
+        "hook=\"\"",
+        "payload="
+      ],
+      "runtime": "nodejs10.x",
+      "handler": "index.handler",
+      "environment": {
+        "API_KEY": ""
+      },
+      "app_id": "e1db4c4f-d1d4-4e03-9158-0b5d67c174b9",
+      "version": "1.0.0"
+    }
+  ]
+}

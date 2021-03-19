@@ -1,0 +1,3142 @@
+start:
+	say Typing(3000)	
+	say "Bienvenue à vous je suis Docteur votre  informateur et assistant sur la pandémie de COVID-19 en Côte d'Ivoire
+0:Informations sur la situation en CI et dans le monde*
+1:Connaître l'évolution de la pandémie par pays 
+2:Recevoir des images de sensibilisation 
+3:Recevoir des messages de sensibilisation en langues local
+4:Tout savoir sur le COVID-19
+55:Faire son diagnostic 
+6:Qui contacter en cas d'urgence 
+7:Pour revenir au menu"
+say Typing(1000)
+say Question(
+		" Appuyez sur un boutton",
+
+		buttons=[
+			Button("0", accepts=["0", "o", "O"]) as btn0,
+			Button("1", accepts=["1"]) as btn1,
+			Button("2", accepts=["2"]) as btn2,
+ 	  	Button("3", accepts=["3"]) as btn8,	
+			Button("4", accepts=["4"]) as btn3,
+			Button("5", accepts=["5"]) as btn4,
+			Button("6", accepts=["6"]) as btn5,
+ 			Button("7", accepts=["7"]) as btn6     
+    ],
+		 button_type="quick_reply"
+  )
+	hold
+	
+	if (event match btn0) {
+	say "A:Nombre de contaminés en CI
+B:Ville  contaminés et l'évolutions de la pandémie en CI 
+C:Les décisions gouvernementales 
+D:Les fakes news 
+E:Info dans le monde 
+F:Pour revenir à l'acceuill "
+say Typing(1000)
+say Question(
+		" Appuyez sur un boutton",
+			buttons=[
+				Button("A", accepts=["a", "A"]) as btna,
+				Button("B", accepts=["b","B"]) as btnb,
+				Button("C", accepts=["c","C"]) as btnc,
+				Button("D", accepts=["d","D"]) as btnd,
+				Button("E", accepts=["e","E"]) as btne,
+				Button("F", accepts=["f","F"]) as btnf
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+		if (event match btna) {
+    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Côte d'Ivoire").send()
+			  say "Situation en Côte d'Ivoire"
+				say Image(covid.countryInfo.flag)
+        say "Cas confirmés :"
+        say (covid.cases)
+        say "Décès         :"  
+        say (covid.deaths)
+        say "Guéries"	
+        say (covid.recovered)
+        say "Aujourd'hui"
+        say "Cas confirmés :" 
+        say (covid.todayCases)
+        say "Décès         :"  
+        say (covid.todayDeaths)
+
+ 
+    		
+		say Typing (500)
+		say Url("https://www.covid19-ci.info" ,text = "En savoir plus")
+    say Typing (500)
+  	say Image("http://chatbot-li19.herokuapp.com/static/img/b2.jpg") 
+		say Typing(500)
+		if (event match btna){
+		say Question(
+			"*« Voulez vous continuer sur ce menu  »*",
+			buttons=[
+				Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+				Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+			if (event match btnyes) {
+				goto a2
+				} 
+			else {
+    		goto start
+				}	
+			}    	
+		}
+			else if (event match btnb) {
+			  
+				say Url("https://www.covid19-ci.info",text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/b3.jpg") 	
+				say Typing(500)
+  		  if (event match btnb){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}		
+			}				
+			else if (event match btnc) {
+		
+				say Url("https://aip.ci/covid-19-le-president-ouattara-declare-letat-durgence-en-cote-divoire",text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c5.jpg") 	
+				say Typing(500)	
+    	  if (event match btnc){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}				
+			}				
+			else if (event match btnd) {
+			
+				say Url("https://aip.ci/covid-19-le-president-uattara-declare-letat-durgence-en-cote-divoire",text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c7.jpg") 
+				say Typing(500)
+			  if (event match btnd){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}			
+			}				
+			else if (event match btne) {
+    	do covid = HTTP("https://corona.lmao.ninja/v2/all").send()
+        say "Situation dans le monde"
+        say "Cas confirmés :"
+        say (covid.cases)
+        say "Décès         :"  
+        say (covid.deaths)
+        say "Guéries"	
+        say (covid.recovered)
+        say "Aujourd'hui"
+        say "Cas confirmés :" 
+        say (covid.todayCases)
+        say "Décès         :"  
+        say (covid.todayDeaths)
+						  
+			  say Typing (500)
+			  say Url("https://www.lemonde.fr/coronavirus-2019-ncov" ,text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/b6.jpg") 
+			  if (event match btne){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}
+	
+			}
+			else if (event match btnf) {
+				goto start
+			
+			}
+			else {
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}
+
+
+
+	} 
+  else if (event match btn1){
+
+	goto a6
+    
+  }
+
+ 	else if (event match btn2) {
+  say "Envoie cov1 jusqu'aa cov9 pour recevoir des images de sensibilisation de ma part
+Envoie Cov0 revenir à l'acceuill "
+say Typing(500)
+say Question(
+			"Appuyer sur un boutton ou entrez l'indication",
+			buttons=[
+				Button("cov1", accepts=["COV1", "COv1","Cov1","cov1"]) as btncov1,
+				Button("cov2", accepts=["COV2", "COv2","Cov2","cov2"]) as btncov2,
+				Button("cov3", accepts=["COV3", "COv3","Cov3","cov3"]) as btncov3,
+				Button("cov4", accepts=["COV4", "COv4","Cov4","cov4"]) as btncov4,
+				Button("cov5", accepts=["COV5", "COv5","Cov5","cov5"]) as btncov5,
+				Button("cov6", accepts=["COV6", "COv6","Cov6","cov6"]) as btncov6,
+				Button("cov7", accepts=["COV7", "COv7","Cov7","cov7"]) as btncov7,
+				Button("cov8", accepts=["COV8", "COv8","Cov8","cov8"]) as btncov8,
+				Button("cov9", accepts=["COV9", "COv9","Cov9","cov9"]) as btncov9,
+				Button("cov0", accepts=["COV0", "COv0","Cov0","cov0"]) as btncov0
+				
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+		if (event match btncov1 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b1.jpg")
+			say Typing(500)
+			if (event match btncov1 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}			 
+		}	
+		else if (event match btncov2 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b2.jpg")
+			say Typing(500) 
+			if (event match btncov2 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}			
+		}	
+		else if (event match btncov3 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b3.jpg")
+			say Typing(500)
+			if (event match btncov3) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}	
+		else if (event match btncov4 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b4.jpg")
+			say Typing(500) 
+			if (event match btncov4 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}	
+		else if (event match btncov5 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b5.jpg") 
+			say Typing(500)
+			if (event match btncov5 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}				
+		}
+		else if (event match btncov6 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b6.jpg") 
+			say Typing(500)
+			if (event match btncov6 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}
+		else if (event match btncov7 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b7.jpg")
+			say Typing(500) 
+			if (event match btncov7 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}				
+		}	
+		else if (event match btncov8 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b8.jpg") 
+			say Typing(500)
+			if (event match btncov8 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}	
+		else if (event match btncov9 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b9.jpg")
+			say Typing(500)
+			if (event match btncov9 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}
+			
+		else if (event match btncov0 ) {
+			goto start
+		}
+		else {
+			say Question(
+			"*« Voulez vous recevoir des images de sensibilisation  »*",
+			buttons=[
+				Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+				Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    	]
+  	)
+		hold
+			if (event match btnyes) {
+				goto sen
+			} 
+			else {
+    		goto start
+			}	
+		}			
+	}
+	else if (event match btn3) {
+	 say "Tout savoir sur le COVID-19 
+		A:Qu'est ce que le COVID-19 ?
+		B:Comment le COVID-19 se propage t-il ?
+		C:Quels sont les symptomes du COVID-19
+		D:Comment se proteger contre le COVID-19 
+		E:Pour revenir à l'acceuill "
+		say Typing(500)
+		say Question(
+		" Appuyer sur un boutton ou entrez l'indication",
+			buttons=[
+				Button("A", accepts=["a", "A"]) as btna,
+				Button("B", accepts=["b","B"]) as btnb,
+				Button("C", accepts=["c","C"]) as btnc,
+				Button("D", accepts=["d","D"]) as btnd,
+				Button("E", accepts=["e","E"]) as btne,
+				
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+		if (event match btna) {
+				say "La maladie à coronavirus 2019 (COVID-19) est une maladie infectieuse provoquée par un nouveau virus qui n'avait encore jamais été identifié chez l'être humain.Ce virus provoque une maladie respiratoire (analogue à la grippe) avec des symptômes comme la toux, la fièvre et, dans les cas les plus sévères, une pneumonie. On peut s'en protéger en se lavant fréquemment les mains, et en évitant de se toucher le visage."
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",
+    		  text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/d2.jpg") 
+				if (event match btna){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+				
+			}				
+		else if (event match btnc) {
+				say "Les symptômes les plus courants de la COVID-19 sont la fièvre, la fatigue et une toux sèche. Certains patients présentent des douleurs, une congestion nasale, un écoulement nasal, des maux de gorge ou une diarrhée. Ces symptômes sont généralement bénins et apparaissent de manière progressive. Certaines personnes, bien qu’infectées, ne présentent aucun symptôme et se sentent bien."
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",
+    		  text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/d1.jpg") 
+				if (event match btnc){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+		
+			}				
+		else if (event match btnb) {
+				say "La COVID-19 est transmise par des personnes porteuses du virus. La maladie peut se transmettre d’une personne à l’autre par le biais de gouttelettes respiratoires expulsées par le nez ou par la bouche lorsqu’une personne tousse ou éternue. Ces gouttelettes peuvent se retrouver sur des objets ou des surfaces autour de la personne en question. On peut alors contracter la COVID-19 si on touche ces objets ou ces surfaces et si on se touche ensuite les yeux, le nez ou la bouche. "
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/b8.jpg") 
+				if (event match btnb){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+			}				
+		else if (event match btnd) {
+				say "Se laver fréquemment et soigneusement les mains avec une solution hydroalcoolique ou à l’eau et au savon.Maintenir une distance d’au moins un mètre avec les autres personnes qui toussent ou qui éternuent.Éviter de se toucher les yeux, le nez et la bouche."
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses", text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c2.jpg") 
+    		 
+				if (event match btnd){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+			}				
+		else if (event match btne) {
+			goto start
+		}	
+		else {
+			say Question(
+			"*« Voulez vous continuer avec ce menu  »*",
+			buttons=[
+				Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+				Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    	]
+  	)
+		hold
+			if (event match btnyes) {
+				goto qu
+			} else {
+    			goto start
+				}	
+		}
+
+		
+	}
+	else if (event match btn4) {
+		say "Allons-y."
+		say Typing (2000)
+		goto start1
+	}
+	else if (event match btn5) {
+		say "Appelez le 143 ou 101"
+		say Typing(2000)
+		say "Envoyez corona au 1366"
+	}	
+  else if (event match btn6) {
+      goto start
+
+	}	
+  else if (event match btn8) {
+      goto lang
+
+	}	
+	else {
+		say "L'information est incorrecte .Réessayez SVP!"
+		say Typing(2000)
+		goto start
+	}
+	goto end
+
+
+
+lang:
+
+	say "Les lagues disponiblrs pour l'instant
+A:Agni
+B:Baoulé
+C:Bété
+D:Ebrié
+E:Malinké
+F:Senoufo 
+G:Pour revenir à l'acceuill "
+say Typing(1000)
+say Question(
+		" Appuyez sur un boutton",
+			buttons=[
+				Button("A", accepts=["a", "A"]) as btna,
+				Button("B", accepts=["b","B"]) as btnb,
+				Button("C", accepts=["c","C"]) as btnc,
+				Button("D", accepts=["d","D"]) as btnd,
+				Button("E", accepts=["e","E"]) as btne,
+				Button("F", accepts=["f","F"]) as btnf,
+				Button("G", accepts=["g","G"]) as btng
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+	  if (event match btna) {
+      say "Cliquez sur ce lien pour écouter le message"
+  		say Url("https://www.youtube.com/watch?v=oS72B2g6ETA") 
+      
+		}	
+	  else if (event match btnb) {
+      say "Cliquez sur ce lien pour écouter le message"
+  		say Url("https://www.youtube.com/watch?v=Itf3RFIhEk0") 
+      
+		}	
+	  else if (event match btnc) {
+      say "Cliquez sur ce lien pour écouter le message"
+  		say Url("https://www.youtube.com/watch?v=TuuEKn2Al3Y") 
+      
+		}
+	  else if (event match btnd) {
+      say "Cliquez sur ce lien pour écouter le message"
+      say Url("https://www.youtube.com/watch?v=4HnVCj-Z_SA") 
+      
+		}
+	  else if (event match btne) {
+      say "Cliquez sur ce lien pour écouter le message"
+  		say Url("https://www.youtube.com/watch?v=e2A9Kfs9Gio") 
+      
+		}
+	  else if (event match btnf) {
+      say "Cliquez sur ce lien pour écouter le message"
+  		say Url("https://www.youtube.com/watch?v=Q8_miqpBpDU") 
+      
+		}
+	  else if (event match btng) {
+  		goto start
+      
+		}
+		else {
+
+			say "La saisie est incorrecte"
+			say Typing(2000)
+			say Question(
+	 			"*« Voulez vous réessayer  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+				hold
+				if (event match btnyes) {
+					goto lang
+				} 
+				else {
+    			goto start
+				}	
+			
+		}
+
+  say Typing (2000)
+  say Image("http://chatbot-li19.herokuapp.com/static/img/c9.jpg") 
+	say Question(
+		"*« Voulez vous continuer sur ce menu  »*",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		]
+	)
+	hold
+	if (event match btnyes) {
+		goto lang
+		} 
+	else {
+		goto start
+	}
+
+
+	goto end
+
+
+
+a6:
+
+		say Question(
+			"*« Entrez en minuscule le nom d'un pays (ex:côte d'ivoire)  »*",
+			buttons=[
+				Button("afghanistan", accepts=["afghanistan"]) as btnye1,
+				Button("afrique du sud", accepts=["afrique du sud"]) as btnye2,
+				Button("algérie", accepts=["algérie", "algerie"]) as btnye3,
+				Button("z", accepts=["allemagne"]) as btnye4,
+				Button("z", accepts=["angola"]) as btnye5,
+				Button("z", accepts=["arabie saoudite"]) as btnye6,
+				Button("z", accepts=["argentine"]) as btnye7,
+				Button("z", accepts= ["australie"]) as btnye8,
+				Button("z", accepts=["belgique"]) as btnye9,
+				Button("z", accepts=["brésil", "bresil"]) as btnye10,
+				Button("z", accepts=["burkina faso"]) as btnye11,
+				Button("z", accepts=["benin","bénin","Benin"]) as btnye12,
+				Button("z", accepts=["cameroun"]) as btnye13,
+				Button("z", accepts=["canada"]) as btnye14,
+				Button("z", accepts=["cap-bert", "cap vert"]) as btnye15,
+				Button("z", accepts=["chili"]) as btnye16,
+				Button("z", accepts=["chine"]) as btnye17,
+				Button("z", accepts=["colombie"]) as btnye18,
+				Button("z", accepts=["comores"]) as btnye19,
+				Button("z", accepts=["congo-brazzaville","congo brazzaville", "république du congo", "republique du congo"]) as btnye20,
+				Button("z", accepts=["cote d'ivoire","côte d'ivoire","Côte d'Ivoire","Côte d'ivoire"]) as btnye23,
+				Button("z", accepts=["croatie"]) as btnye24,
+				Button("z", accepts=["cuba"]) as btnye25,
+				Button("z", accepts=["danemark"]) as btnye26,
+				Button("z", accepts=["djibouti"]) as btnye27,
+				Button("z", accepts=["égypte", "egypte"]) as btnye28,
+				Button("z", accepts=["émirats arabes unis", "emirats arabes unis", "émirats arabe unis"]) as btnye29,
+				Button("z", accepts=["espagne"]) as btnye30,
+				Button("z", accepts=["etat de la cité du vatican","vatican"]) as btnye31,
+				Button("z", accepts=["états-unis","etats-unis", "état unis", "états unis", "etats unis", "etat unis"]) as btnye32,
+				Button("z", accepts=["éthiopie", "ethiopie"]) as btnye33,
+				Button("z", accepts= ["france"]) as btnye34,
+				Button("z", accepts=["gabon"]) as btnye35,
+				Button("z", accepts=["gambie"]) as btnye36,
+				Button("z", accepts=["géorgie"]) as btnye37,
+				Button("z", accepts=["ghana"]) as btnye38,
+				Button("z", accepts=["grèce", "grece"]) as btnye40,
+				Button("z", accepts=["guinée"])as btnye41,
+				Button("z", accepts=["guinée-bissau"]) as btnye43,
+				Button("z", accepts=["haïti"]) as btnye44,
+				Button("z", accepts=["inde"]) as btnye45,
+				Button("z", accepts=["indonésie", "indonesie"]) as btnye46,
+				Button("z", accepts=["irak"]) as btnye47,
+				Button("z", accepts=["iran"]) as btnye48,
+				Button("z", accepts=["irlande"]) as btnye49,
+				Button("z", accepts=["israël", "israel"]) as btnye50,
+				Button("z", accepts=["italie"]) as btnye51,
+				Button("z", accepts=["jamaïque", "jamaique"]) as btnye52,
+				Button("z", accepts=["japon"]) as btnye53,
+				Button("z", accepts=["kenya"]) as btnye54,
+				Button("z", accepts=["liban"]) as btnye55,
+				Button("z", accepts=["libéria", "liberia"]) as btnye56,
+				Button("z", accepts=["libye"]) as btnye57,
+				Button("z", accepts=["maldives", "mamdive"]) as btnye58,
+				Button("z", accepts=["mali"]) as btnye59,
+				Button("z", accepts=["maroc"]) as btnye60,
+				Button("z", accepts=["mexique"]) as btnye61,
+				Button("z", accepts=["monaco"]) as btnye62,
+				Button("z", accepts=["niger"]) as btnye63,
+				Button("z", accepts=["nigéria", "nigeria"]) as btnye64,
+				Button("z", accepts=["norvège", "norvege"]) as btnye65,
+				Button("z", accepts=["ouganda"]) as btnye66,
+				Button("z", accepts=["pays-Bas"]) as btnye67,
+				Button("z", accepts=["pérou", "perou"]) as btnye68,
+				Button("z", accepts=["portugal"]) as btnye69,
+				Button("z", accepts=["qatar"]) as btnye70,
+				Button("z", accepts=["république centrafricaine", "centrafricaine"]) as btnye80,
+				Button("z", accepts=["république démocratique du congo", "congo-kinshasa", "congo kinshasa", "republique democratique du congo", "république democratique du congo", "republique démocratique du congo"]) as btnye81,
+				Button("z", accepts= ["royaume-Uni"]) as btnye82,
+				Button("z", accepts= ["russie"]) as btnye83,
+				Button("z", accepts=["rwanda"]) as btnye84,
+				Button("z", accepts=["sénégal","senegal"]) as btnye85,
+				Button("z", accepts=["serbie"]) as btnye86,
+				Button("z", accepts=["sierra leone"]) as btnye87,
+				Button("z", accepts=["somalie"]) as btnye88,
+				Button("z", accepts=["suède", "suede"]) as btnye89,
+				Button("z", accepts=["suisse"]) as btnye90,
+				Button("z", accepts=["syrie"])as btnye91,
+				Button("z", accepts=["tchad"]) as btnye92,
+				Button("z", accepts=["togo"]) as btnye93,
+				Button("z", accepts=["tunisie"]) as btnye94,
+				Button("z", accepts=["turquie"]) as btnye95,
+				Button("z", accepts=["ukraine"]) as btnye96,
+				Button("z", accepts=["zambie"]) as btnye98,
+				Button("z", accepts=["zimbabwe"]) as btnye99
+    		]
+  		)
+			hold
+				if (event match btnye1) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Afghanistan").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye2) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/South Africa").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye3) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Algeria").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye4) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Germany").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye5) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Angola").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye6) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Saudi Arabia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye7) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Argentina").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye8) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Australia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye9) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Belgium").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye10) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Brazil").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye11) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Burkina Faso").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye12) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Benin").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)	
+				}				
+				
+				else if (event match btnye13) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/cameroon").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye14) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Canada").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye15) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Cabo Verde").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye16) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Chile").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye17) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/China").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye18) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Colombia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye19) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Finland").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye20) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Congo").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye23) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Côte d'Ivoire").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye24) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Croatia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye25) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Cuba").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye26) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Denmark").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye27) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Djibouti").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye28) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Egypt").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye29) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Saudi Arabia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye30) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Spain").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye31) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Saint Vincent and the Grenadines").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye32) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/USA").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye33) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Ethiopia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye34) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/France").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye35) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Gabon").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye36) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Gambia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye37) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Georgia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye38) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Ghana").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye40) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Greece").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye41) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Guinea").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye43) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Guinea-Bissau").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye44) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Haiti").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye45) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/India").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye46) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Indonesia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye47) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Iraq").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye48) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Iran").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye49) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Ireland").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye50) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Israel").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye52) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Jamaica").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye53) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Japan").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye54) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Kenya").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye55) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Lebanon").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye56) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Liberia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye51) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Italy").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye57) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Libyan Arab Jamahiriya").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye58) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Maldives").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye59) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Mali").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye60) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Morocco").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye61) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Mexico").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye62) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Mauritania").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye63) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Niger").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye64) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Nigeria").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye65) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Norway").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye66) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Uganda").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye67) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Holland").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye68) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Peru").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye69) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Portugal").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye70) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Qatar").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye80) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Western Sahara").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye81) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Congo").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye82) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Réunion").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye83) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Russia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye84) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Rwanda").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye85) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Senegal").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye86) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Serbia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye87) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Sierra Leone").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye88) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Somalia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye89) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Sweden").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye90) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Swaziland").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye91) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Syrian Arab Republic").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye92) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Tanzania").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye93) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Togo").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye94) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Tunisia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye95) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Turkey").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye96) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Ukraine").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				}
+				else if (event match btnye98) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Zambia").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else if (event match btnye99) {
+		    	do covid = HTTP("https://corona.lmao.ninja/v2/countries/Zimbabwe").send()
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)					
+				} 
+				else {
+					say "Le nom du pays est incorrecte"
+					say Typing(2000)
+					say Question(
+		 				"*« Voulez vous réessayer  »*",
+						buttons=[
+							Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+							Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto a6
+					} 
+					else {
+    				goto start
+					}	
+				}	
+			say Typing (2000)
+		  say Url("https://www.lemonde.fr/coronavirus-2019-ncov" ,text = "En savoir plus")
+      say Typing (2000)
+      say Image("http://chatbot-li19.herokuapp.com/static/img/c9.jpg") 
+			say Question(
+		 			"*« Voulez vous continuer sur ce menu  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto a6
+				} 
+				else {
+    			goto start
+				}	
+
+    
+  
+
+
+  goto end
+
+sen:
+	say "Envoie cov1 jusqu'aa cov9 pour recevoir des images de sensibilisation de ma part
+Envoie Cov0 revenir à l'acceuill "
+say Typing(500)
+say Question(
+			"Appuyez sur un bouton ",
+			buttons=[
+				Button("cov1", accepts=["COV1", "COv1","Cov1","cov1"]) as btncov1,
+				Button("cov2", accepts=["COV2", "COv2","Cov2","cov2"]) as btncov2,
+				Button("cov3", accepts=["COV3", "COv3","Cov3","cov3"]) as btncov3,
+				Button("cov4", accepts=["COV4", "COv4","Cov4","cov4"]) as btncov4,
+				Button("cov5", accepts=["COV5", "COv5","Cov5","cov5"]) as btncov5,
+				Button("cov6", accepts=["COV6", "COv6","Cov6","cov6"]) as btncov6,
+				Button("cov7", accepts=["COV7", "COv7","Cov7","cov7"]) as btncov7,
+				Button("cov8", accepts=["COV8", "COv8","Cov8","cov8"]) as btncov8,
+				Button("cov9", accepts=["COV9", "COv9","Cov9","cov9"]) as btncov9,
+				Button("cov0", accepts=["COV0", "COv0","Cov0","cov0"]) as btncov0
+				
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+		if (event match btncov1 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b1.jpg")
+			say Typing(500)
+			if (event match btncov1 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}			 
+		}	
+		else if (event match btncov2 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b2.jpg") 
+			say Typing(500)
+			if (event match btncov2 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}			
+		}	
+		else if (event match btncov3 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b3.jpg")
+			say Typing(500)
+			if (event match btncov3) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}	
+		else if (event match btncov4 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b4.jpg") 
+			say Typing(500)
+			if (event match btncov4 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}	
+		else if (event match btncov5 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b5.jpg") 
+			say Typing(500)
+			if (event match btncov5 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}				
+		}
+		else if (event match btncov6 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b6.jpg")
+			say Typing(500) 
+			if (event match btncov6 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}
+		else if (event match btncov7 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b7.jpg") 
+			say Typing(500)
+			if (event match btncov7 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}				
+		}	
+		else if (event match btncov8 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b8.jpg") 
+			say Typing(500)
+			if (event match btncov8 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}	
+		else if (event match btncov9 ) {
+			say Image("http://chatbot-li19.herokuapp.com/static/img/b9.jpg")
+			say Typing(500)
+			if (event match btncov9 ) {
+				say Question(
+				"*« Voulez vous recevoir des images de sensibilisation  »*",
+				buttons=[
+					Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+					Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    			]
+  			)
+			hold
+				if (event match btnyes) {
+					goto sen
+				} 
+				else {
+    			goto start
+				}	
+			}		
+		}
+			
+		else if (event match btncov0 ) {
+			goto start
+		}
+		else {
+			say Question(
+			"*« Voulez vous recevoir des images de sensibilisation  »*",
+			buttons=[
+				Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+				Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    	]
+  	)
+		hold
+			if (event match btnyes) {
+				goto sen
+			} 
+			else {
+    		goto start
+			}	
+		}		
+	goto end
+
+qu:
+
+	say "Tout savoir sur le COVID-19 
+A:Qu'est ce que le COVID-19 ?
+B:Comment le COVID-19 se propage t-il ?
+C:Quels sont les symptomes du COVID-19
+D:Comment se proteger contre le COVID-19 
+E:Pour revenir à l'acceuill "
+say Typing(500)
+say Question(
+		" Appuyez sur un boutton",
+			buttons=[
+				Button("A", accepts=["a", "A"]) as btna,
+				Button("B", accepts=["b","B"]) as btnb,
+				Button("C", accepts=["c","C"]) as btnc,
+				Button("D", accepts=["d","D"]) as btnd,
+				Button("E", accepts=["e","E"]) as btne,
+				
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+		if (event match btna) {
+				say "La maladie à coronavirus 2019 (COVID-19) est une maladie infectieuse provoquée par un nouveau virus qui n'avait encore jamais été identifié chez l'être humain.Ce virus provoque une maladie respiratoire (analogue à la grippe) avec des symptômes comme la toux, la fièvre et, dans les cas les plus sévères, une pneumonie. On peut s'en protéger en se lavant fréquemment les mains, et en évitant de se toucher le visage."
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",
+    		  text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c4.jpg") 
+				if (event match btna){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+				
+			}				
+		else if (event match btnc) {
+				say "Les symptômes les plus courants de la COVID-19 sont la fièvre, la fatigue et une toux sèche. Certains patients présentent des douleurs, une congestion nasale, un écoulement nasal, des maux de gorge ou une diarrhée. Ces symptômes sont généralement bénins et apparaissent de manière progressive. Certaines personnes, bien qu’infectées, ne présentent aucun symptôme et se sentent bien."
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",
+    		  text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c8.jpg") 
+				if (event match btnc){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+		
+			}				
+		else if (event match btnb) {
+				say "La COVID-19 est transmise par des personnes porteuses du virus. La maladie peut se transmettre d’une personne à l’autre par le biais de gouttelettes respiratoires expulsées par le nez ou par la bouche lorsqu’une personne tousse ou éternue. Ces gouttelettes peuvent se retrouver sur des objets ou des surfaces autour de la personne en question. On peut alors contracter la COVID-19 si on touche ces objets ou ces surfaces et si on se touche ensuite les yeux, le nez ou la bouche. "
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",
+    		  text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c6.jpg") 
+				if (event match btnb){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+			}				
+		else if (event match btnd) {
+				say "Se laver fréquemment et soigneusement les mains avec une solution hydroalcoolique ou à l’eau et au savon.Maintenir une distance d’au moins un mètre avec les autres personnes qui toussent ou qui éternuent.Éviter de se toucher les yeux, le nez et la bouche."
+				say Typing (500)
+				say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses",
+    		  text="Pour plus d'information")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/d1.jpg") 
+
+				if (event match btnd){
+					say Question(
+						"*« Voulez vous continuer avec ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto qu
+					} else {
+    				goto start
+					}	
+				}
+			}				
+		else if (event match btne) {
+			goto start
+		}	
+		else {
+			say Question(
+			"*« Voulez vous continuer avec ce menu  »*",
+			buttons=[
+				Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+				Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    	]
+  	)
+		hold
+			if (event match btnyes) {
+				goto qu
+			} else {
+    			goto start
+				}	
+		}
+
+	goto end
+
+a2:
+
+	say "A:Nombre de contaminés en CI 
+B:Ville  contaminés 
+C:Les décisions gouvernementales 
+D:Les fakes news 
+E:Info dans le monde 
+F:Pour revenir à l'acceuill "
+say Typing(500)
+say Question(
+		" Appuyer un boutton n",
+			buttons=[
+				Button("A", accepts=["a", "A"]) as btnaa,
+				Button("B", accepts=["b","B"]) as btnb,
+				Button("C", accepts=["c","C"]) as btnc,
+				Button("D", accepts=["d","D"]) as btnd,
+				Button("E", accepts=["e","E"]) as btne,
+				Button("F", accepts=["f","F"]) as btnf
+		 	],
+			 button_type="quick_reply"
+  	)
+		hold
+			if (event match btnaa) {
+    		do covid = HTTP("https://corona.lmao.ninja/v2/countries/Côte d'Ivoire").send()
+			  	say "Situation en Côte d'Ivoire"
+					say Image(covid.countryInfo.flag)
+        	say "Cas confirmés :"
+        	say (covid.cases)
+        	say "Décès         :"  
+        	say (covid.deaths)
+        	say "Guéries"	
+        	say (covid.recovered)
+        	say "Aujourd'hui"
+        	say "Cas confirmés :" 
+        	say (covid.todayCases)
+        	say "Décès         :"  
+        	say (covid.todayDeaths)    		
+				say Typing (500)
+				say Url("https://www.covid19-ci.info" ,text = "En savoir plus")
+			  if (event match btnaa){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+					hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}    	
+			}
+			else if (event match btnb) {
+			  
+				say Url("https://aip.ci/covid-19-le-president-ouattara-declare-letat-durgence-en-cote-divoire",text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/d1.jpg") 
+			  if (event match btnb){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}		
+			}				
+			else if (event match btnc) {
+		
+				say Url("https://aip.ci/covid-19-le-president-ouattara-declare-letat-durgence-en-cote-divoire",text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/b9.jpg") 		
+    	  if (event match btnc){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}				
+			}				
+			else if (event match btnd) {
+			
+				say Url("https://aip.ci/covid-19-le-president-uattara-declare-letat-durgence-en-cote-divoire",text = "En savoir plus")
+        say Typing (500)
+        say Image("http://chatbot-li19.herokuapp.com/static/img/c9.jpg") 
+			  if (event match btnd){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}			
+			}				
+			else if (event match btne) {
+        use Fn("http", url="https://corona.lmao.ninja/all" , action = "GET") as covid
+        say "Situation dans le monde"
+        say "Cas confirmés :"
+        say (covid.cases)
+        say "Décès         :"  
+        say (covid.deaths)
+        say "Guéries"	
+        say (covid.recovered)
+        say "Aujourd'hui"
+        say "Cas confirmés :" 
+        say (covid.todayCases)
+        say "Décès         :"  
+        say (covid.todayDeaths)
+						  
+			  say Typing (500)
+			  say Url("https://www.lemonde.fr/coronavirus-2019-ncov" ,text = "En savoir plus")
+			  if (event match btne){
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}
+	
+			}
+			else if (event match btnf) {
+				goto start
+			
+			}
+			else {
+					say Question(
+						"*« Voulez vous continuer sur ce menu  »*",
+					buttons=[
+						Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+						Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    				]
+  				)
+				hold
+					if (event match btnyes) {
+						goto a2
+					} 
+					else {
+    				goto start
+					}	
+				}
+
+ goto end
+
+start1:
+  say Typing(1500)
+  say "Bienvenue sur le test d'autodiagnostic COVID-19."
+  say Typing(2000)
+	say "⚠️ Attention, ce site d’information *n’est pas un dispositif médical*, il ne délivre pas d’avis médical."
+	say Typing(3000)
+	say "*🚨Information Importante 🚨* : la prise d'anti-inflammatoires (ibuprofène, cortisone ...) pourrait être un facteur d'aggravation de l’infection."
+	say "En cas de fièvre 🤒, prenez du paracétamol. Si vous êtes déjà sous anti-inflammatoires ou en cas de doute, demandez conseil à votre médecin 👨‍⚕️👩‍⚕️."
+	say Typing(2000)
+	say Question(
+		"*« Etes vous prêt pour démarer le test »*",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+    ]
+  )
+	hold
+	if (event match btnyes) {
+		say "Allons-y."
+		say Typing (2000)
+		goto q1
+	} else {
+		say Question(
+      "C'est noté. Bonne journée ! 🙂",
+      buttons=[Button("Recommencer")]
+    )
+    hold
+    goto start
+	}
+	goto end
+
+
+q1:
+	say Question(
+		"*1/21* : Pensez-vous avoir eu de la fièvre ces derniers jours (frissons, sueurs) ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno,
+			Button("Ne sait pas", accepts=["ne sait pas", "ne sais pas", "Ne sais pas", "Je ne sais pas", "je ne sais pas", "ne sais pas"]) as btnnsp
+		])
+	hold
+	if (event match btnyes || event match btnnsp) {
+		remember hasTemp = 1
+		goto q1bis
+	} else if (event match btnno) {
+		remember hasTemp = 0
+		// Verifier la valeur envoyée à l'api de `temp`
+		remember temp = 0
+		goto q2
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons."
+		goto q1
+	}
+
+q1bis:
+	say "*1bis/21* : Quelle est votre température corporelle (ex: 38) ?"
+	hold
+	do Fn("norm_units", string=event) as parsedTemp
+	if (!parsedTemp) {
+		say "Veuillez saisir une température valide."
+		goto q1bis
+	}
+	if (parsedTemp.is_number() && parsedTemp >= 34 && parsedTemp <= 42) {
+		remember temp = parsedTemp
+		goto q2
+	} else {
+		say "Veuillez saisir une température valide, entre 34 et 42 degrés."
+		goto q1bis
+	}
+
+q2:
+	say Question(
+		"*2/21* : Avez-vous *une toux ou une augmentation de votre toux* habituelle ces derniers jours ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasCaugh = 1
+		goto q3
+	} else if (event match btnno) {
+		remember hasCaugh = 0
+		goto q3
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons."
+		goto q2
+	}
+
+q3:
+	say Question(
+		"*3/21* : Ces derniers jours, avez-vous noté une *forte diminution ou perte de votre goût ou de votre odorat* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasNoTaste = 1
+		goto q4
+	} else if (event match btnno) {
+		remember hasNoTaste = 0
+		goto q4
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q3
+	}
+
+
+q4:
+	say Question(
+		"*4/21* : Avez-vous un *mal de gorge* ou des *douleurs musculaires* ou des *courbatures* inhabituelles ces derniers jours ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasPainfulThroatMuscle = 1
+		goto q5
+	} else if (event match btnno) {
+		remember hasPainfulThroatMuscle = 0
+		goto q5
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q4
+	}
+
+q5:
+	say Question(
+		"*5/21* : Ces dernières 24 heures, avez-vous de la *diarrhée* ? Avec au moins 3 selles molles.",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasDiarrhea = 1
+		goto q6
+	} else if (event match btnno) {
+		remember hasDiarrhea = 0
+		goto q6
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q5
+	}
+
+q6:
+	say Question(
+		"*6/21* : Ces derniers jours, avez-vous une *fatigue inhabituelle* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasFatigue = 1
+		goto q6bis
+	} else if (event match btnno) {
+		remember hasFatigue = 0
+		remember hasDailyNap = 0
+		goto q7
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q6
+	}
+
+q6bis:
+	say Question(
+		"*6bis/21* : Cette fatigue vous oblige-t-elle à vous reposer plus de la moitié de la journée ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasDailyNap = 1
+		goto q7
+	} else if (event match btnno) {
+		remember hasDailyNap = 0
+		goto q7
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q6bis
+	}
+
+q7:
+	say Question(
+		"*7/21* : Êtes vous dans l'impossibilité de vous alimenter ou de boire *DEPUIS 24 HEURES OU PLUS* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasFeedStruggle = 1
+		goto q8
+	} else if (event match btnno) {
+		remember hasFeedStruggle = 0
+		goto q8
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q7
+	}
+
+q8:
+	say Question(
+		"*8/21* : Dans les dernières 24 heures, avez-vous noté un *manque de souffle INHABITUEL* lorsque vous parlez ou faites un petit effort ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasSOB = 1
+		goto q9
+	} else if (event match btnno) {
+		remember hasSOB = 0
+		goto q9
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q8
+	}
+
+q9:
+	say "*9/21* : Quel est votre âge ? Ceci, afin de calculer un facteur de risque spécifique (ex: 28)."
+	hold
+	do Fn("norm_units", string=event) as parsedAge
+	if (!parsedAge) {
+		say "Veuillez saisir un age valide."
+		goto q9
+	}
+	if (parsedAge.is_number() && parsedAge > 15 && parsedAge <= 110) {
+		remember age = parsedAge
+		goto q10
+	} else if (parsedAge <= 15 && parsedAge >= 0) {
+		say "En l'absence de recommandations connues pour les affections pédiatriques (de moins de 15 ans), il faut rechercher un avis médical pour tout symptôme sur les enfants. Si l'état de santé du patient semble inquiétant, appelez le 15."
+		goto end
+	} else if (parsedAge >= 100 && parsedAge <= 110) {
+		say "Au-delà d'un certain âge, nous ne sommes pas en mesure de fournir des recommendations fiables, il faut rechercher un avis médical pour tout symptôme. Si l'état de santé du patient semble inquiétant, appelez le 15."
+		goto end
+	} else {
+		say "Veuillez saisir un age valide."
+		goto q9
+	}
+
+q10:
+	say "*10/21* : Quel est votre *taille* en centimetres (ex: 175) ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection."
+	hold
+	do Fn("norm_units", string=event) as parsedSize
+	if (!parsedSize) {
+		say "Veuillez saisir une taille valide, entre 80 et 250 cm."
+		goto q10
+	}
+	if (parsedSize < 10) do normSize = parsedSize * 100
+	else do normSize = parsedSize
+	if (normSize.is_number() && normSize >= 80 && normSize <= 250) {
+		remember size = normSize
+		goto q11
+	} else {
+		say "Veuillez saisir une taille valide, entre 80 et 250 cm."
+		goto q10
+	}
+
+q11:
+	say "*11/21* : Quel est votre *poids* en kilogrammes (ex: 84) ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection. "
+	hold
+	do Fn("norm_units", string=event) as parsedWeight
+	if (!parsedWeight) {
+		say "Veuillez saisir un poids valide, entre 20 et 250 kg."
+		goto q11
+	}
+	if (parsedWeight.is_number() && parsedWeight >= 20 && parsedWeight <= 250) {
+		remember weight = parsedWeight
+		goto q12
+	} else {
+		say "Veuillez saisir un poids valide, entre 20 et 250 kg."
+		goto q11
+	}
+
+q12:
+	say Question(
+		"*12/21* : Avez-vous de *l’hypertension artérielle* mal équilibrée ? Ou avez-vous une *maladie cardiaque ou vasculaire* ? Ou prenez-vous un *traitement à visée cardiologique* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno,
+			Button("Ne sait pas", accepts=["ne sait pas", "ne sais pas", "Ne sais pas", "Je ne sais pas", "je ne sais pas", "ne sais pas"]) as btnnsp
+		])
+	hold
+	if (event match btnyes) {
+		remember hasCARDISSUE = 1
+		goto q13
+	} else if (event match btnno) {
+		remember hasCARDISSUE = 0
+		goto q13
+	} else if (event match btnnsp) {
+		remember hasCARDISSUE = 2
+		goto q13
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q12
+	}
+
+q13:
+	say Question(
+		"*13/21* : Êtes-vous diabétique ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasDiabetes = 1
+		goto q14
+	} else if (event match btnno) {
+		remember hasDiabetes = 0
+		goto q14
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q13
+	}
+
+q14:
+	say Question(
+		"*14/21* : Avez-vous ou avez-vous eu un *cancer* dans les 3 dernières années ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasCancer = 1
+		goto q15
+	} else if (event match btnno) {
+		remember hasCancer = 0
+		goto q15
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q14
+	}
+
+q15:
+	say Question(
+		"*15/21* : Avez-vous une *maladie respiratoire* ? Ou êtes-vous *suivi par un pneumologue* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasBreathingIllness = 1
+		goto q16
+	} else if (event match btnno) {
+		remember hasBreathingIllness = 0
+		goto q16
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q15
+	}
+
+q16:
+	say Question(
+		"*16/21* : Avez-vous une *insuffisance rénale chronique dialysée* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasKidneyFailure = 1
+		goto q17
+	} else if (event match btnno) {
+		remember hasKidneyFailure = 0
+		goto q17
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q16
+	}
+
+q17:
+	say Question(
+		"*17/21* : Avez-vous une *maladie chronique du foie* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno
+		])
+	hold
+	if (event match btnyes) {
+		remember hasLiverIllness = 1
+		goto q18
+	} else if (event match btnno) {
+		remember hasLiverIllness = 0
+		goto q18
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q17
+	}
+
+q18:
+	say Question(
+		"*18/21* : Êtes-vous *enceinte* ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno,
+			Button("Non applicable", accepts=["non applicable", "Pas applicable", "na", "n/a", "N/A", "NA"]) as btnna
+		])
+	hold
+	if (event match btnyes) {
+		remember isPregnant = 1
+		goto q19
+	} else if (event match btnno) {
+		remember isPregnant = 0
+		goto q19
+	} else if (event match btnna) {
+		remember isPregnant = 2
+		goto q19
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q18
+	}
+
+q19:
+	say Question(
+		"*19/21* : Avez-vous une maladie connue pour diminuer vos défenses immunitaires ?",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno,
+			Button("Ne sait pas", accepts=["ne sait pas", "ne sais pas", "Ne sais pas", "Je ne sais pas", "je ne sais pas", "ne sais pas"]) as btnnsp
+		])
+	hold
+	if (event match btnyes) {
+		remember hasImuneSystemFailure = 1
+		goto q20
+	} else if (event match btnno) {
+		remember hasImuneSystemFailure = 0
+		goto q20
+	} else if (event match btnnsp) {
+		remember hasImuneSystemFailure = 2
+		goto q20
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q19
+	}
+
+q20:
+	say Question(
+		"*20/21* : Prenez-vous un *traitement immunosuppresseur* ? C’est un traitement qui diminue vos défenses contre les infections. Voici quelques exemples : corticoïdes, méthotrexate, ciclosporine, tacrolimus, azathioprine, cyclophosphamide (liste non exhaustive).",
+		buttons=[
+			Button("Oui", accepts=["oui", "yes", "Yes", "Ouais", "ouais"]) as btnyes,
+			Button("Non", accepts=["non", "no", "Nope", "nope", "No", "Pas du tout"]) as btnno,
+			Button("Ne sait pas", accepts=["ne sait pas", "ne sais pas", "Ne sais pas", "Je ne sais pas", "je ne sais pas", "ne sais pas"]) as btnnsp
+		])
+	hold
+	if (event match btnyes ||tnno ) {
+		remember hasImmunosuppresseur = 1
+		goto bufferStep
+	} else if (event match btnno) {
+		remember hasImmunosuppresseur = 0
+		goto bufferStep
+	} else if (event match btnnsp) {
+		remember hasImmunosuppresseur = 2
+		goto bufferStep
+	} else {
+		say "Veuillez s'il vous plait cliquer sur un des boutons"
+		goto q20
+	}
+	goto bufferStep
+
+bufferStep:
+	if (done == 1) {
+		remember done = 0
+		goto end
+	}
+	remember done = 1
+	goto flow diag_20200330_algo
